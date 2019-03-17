@@ -1,0 +1,8 @@
+--- 
+- hosts: all
+  user: ansible
+  sudo: yes
+  connection: ssh
+  roles:
+    - { role: redhatwebservers, when: ansible_os_family == "RedHat" }
+    - { role: debianwebservers, when: ansible_os_family == "debian" }

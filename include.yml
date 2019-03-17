@@ -1,0 +1,6 @@
+- name: Install Apache
+  action: yum name=httpd state=installed
+  run_once: true
+  delegate_to: localhost
+  notify: restart httpd
+

@@ -1,0 +1,12 @@
+--- #running tasks parallel
+- hosts: local
+  user: ansible
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - name: Install Apache on CentOS
+      yum: pkg=httpd state=latest
+    - name: wait for the service to check if a file exists
+      wait_for:
+         path: /tmp/WAITFORME
+
